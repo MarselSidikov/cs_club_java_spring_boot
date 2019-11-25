@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="usersRepository" class="ru.cs.di.repositories.UsersRepositoryFilesBasedImpl">
+        <constructor-arg name="fileName" value="users.txt"/>
+    </bean>
+
+    <bean id="usersService" class="ru.cs.di.services.UsersServiceImpl">
+        <property name="usersRepository" ref="usersRepositoryJdbc"/>
+    </bean>
+
+    <bean id="usersRepositoryJdbc" class="ru.cs.di.repositories.UsersRepositoryJdbcImpl">
+        <constructor-arg name="template" ref="namedParameterJdbcTemplate"/>
+    </bean>
+
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="qwerty007"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/cs_db"/>
+    </bean>
+
+</beans>
