@@ -45,3 +45,28 @@
 * Для ваших классов - `@Component`.
 
 * Для чужик классов (чтобы их погрузить в контейнер бинов) - `@Bean`.
+
+### Hibernate
+
+* Session - сессия для работы с БД
+* SessionFactory - фабрика сессий
+* Configuration - конфигурация Hibernate (там указываем все необходимые свойства)
+* hbm.xml - файл маппинга класса в таблицу.
+
+### JPA
+
+* EntityManager - менеджер сущностей, стандарт для работы с ORM в Java. Все ORM-фреймворки обязаны реализовывать JPA, если хотят отвечать стандартам ORM.
+
+* @Table, @Entity, @Id, @ManyToOne, @OneToMany, @GeneratedValue, @Column
+
+### Spring Data Jpa
+
+* HikariDataSource - DataSource, который реализует принцип ConnectionPool.
+
+* LocalContainerEntityManagerFactoryBean - класс, который позволяет создавать объекты EntityManager для Spring Data Jpa (адаптирует Hibernate под Spring)
+
+* HibernateJpaVendorAdapter - класс, который адаптирует Hibernate для Spring Data Jpa
+
+* PlatformTransactionManager - менеджер транзакций, чтобы не писать их руками.
+
+* Spring Data Jpa - позволяет создавать JPA-репозитории для того, чтобы не писать самому запросы.

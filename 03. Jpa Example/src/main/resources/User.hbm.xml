@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ru.cs.hibernate.models.User" table="cs_user">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+
+        <property name="name"/>
+
+        <bag name="cars">
+            <key>
+                <column name="owner_id"/>
+            </key>
+            <one-to-many class="ru.cs.hibernate.models.Car"/>
+        </bag>
+    </class>
+</hibernate-mapping>
