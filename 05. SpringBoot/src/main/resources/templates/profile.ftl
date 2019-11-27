@@ -8,17 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-        </tr>
-        <#list users as user>
-            <tr>
-                <td>${user.id}</td>
-                <td>${user.email}</td>
-            </tr>
-        </#list>
-    </table>
+    <h1>${user.id}</h1>
+    <h1>${user.email}</h1>
 </body>
 </html>

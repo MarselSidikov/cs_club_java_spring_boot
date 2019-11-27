@@ -19,9 +19,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String email;
 
-    private Integer age;
+    private String hashPassword;
 
-    private Double height;
+    @Enumerated(value = EnumType.STRING)
+    private UserRole role;
+
+    @Enumerated(value = EnumType.STRING)
+    private UserState state;
+
+    private String confirmLink;
 }

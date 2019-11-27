@@ -5,8 +5,9 @@ import ru.cs.spring.boot.demo.models.User;
 
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UsersRepository extends JpaRepository<User, Long> {
-    List<User> findAllByAgeBefore(Integer value);
-    List<User> findAllByHeightAndAgeBetweenOrderById(Double height, Integer before, Integer after);
+    Optional<User> findByEmail(String email);
+    Optional<User> findByConfirmLink(String confirmLink);
 }
